@@ -113,11 +113,24 @@ console.log(a);*/
 
 8////////////////////
 
-function findAWord(a, b) {
-    for (var i = 0; i < a.length; i++)
+// Write a function to find a word within a string.
 
-}
-var res = findAWord('The quick brown fox', 'fox')
+// 'The quick brown fox', 'fox' -> "'fox' was found 1 times"
+// '	a, bb, cc, dd, aa', 'aa' -> "'aa' was found 2 times"
+
+
+
+// function findAWord(a, b) {
+//     for (var i = 0; i < a.length; i++)
+
+// }
+// var res = findAWord('The quick brown fox', 'fox')
+
+
+////////////          9           //////////
+// Write a function to hide email address.
+
+// "myemailaddress@bgit.rs" -> "mye...@bgit.rs"
 
 
 
