@@ -76,17 +76,78 @@
 
 
 // function smallest(arr) {
-//     var min = arr[0];
-//     var index;
-//     for (var i = 0; i < arr.length; i++) {
-//         if (arr[i] < arr[0]) {
-//             min = arr[i];
-//             index = i;
-//         }
-//     }
-//     return min, index;
+//     var sortedArr = arr.slice().sort(function (a, b) { return a - b })
+//     var index = arr.lastIndexOf(sortedArr[0]);
+
+//     return {
+//         min: sortedArr[0],
+//         minIndex: index
+//     };
 // }
 
 // var res = smallest([1, 4, -2, 11, 8, 1, -2, 3]);
 // console.log(res);
+
+////////////  5  ///////////////////
+// Write a function that finds all the elements in a given array less than a given element. 
+// 	Input: [2, 3, 8, -2, 11, 4], 6 
+// 	Output: [2, 3, -2, 4]
+
+// function lessThan(a, b) {
+//     var newArr = [];
+//     for (var i = 0; i < a.length; i++) {
+//         if (a[i] < b) {
+//             newArr[newArr.length] = a[i];
+//         }
+
+//     }
+//     return newArr
+// }
+// var res = lessThan([2, 3, 8, -2, 11, 4], 6);
+// console.log(res);
+
+//////////// 5b   //////////////////
+
+// Write a function that finds all the elements in a given array that start with the “pro” substring. The function should be case insensitive. 
+// 		Input: [’JavaScript’, ’Programming’, ’fun’, ’product’] 
+// 	Output: [’Programming’, ‘product’]
+
+// function pro(arr) {
+//     var newArr = [];
+//     for (var i = 0; i < arr.length; i++) {
+//         if (arr[i].slice(0, 3).toLowerCase() === "pro") {
+//             newArr.push(arr[i]);
+//         }
+//     }
+//     return newArr
+
+// }
+// var res = pro(["JavaScript", "Programming", "fun", "product"]);
+// console.log(res);
+
+//////////////  6a ///////////
+
+// Write a list (array) of products you usually buy in the supermarket. Write a price and name for each product. For example,
+// 	[
+// {name: ‘apples’, price: 100}, 
+// {name: ‘milk’, price: 80}, 
+// {name:’bananas’, price: 150}
+// ]
+
+// function totalPrice(a) {
+//     var sum = 0;
+//     for (var i = 0; i < a.length; i++) {
+//         sum += a[i].price;
+//     }
+//     return sum;
+// }
+
+// var res = totalPrice([
+//     { name: "apples", price: 100 },
+//     { name: "milk", price: 80 },
+//     { name: "bananas", price: 150 }
+// ]
+// )
+// console.log(res);
+
 
