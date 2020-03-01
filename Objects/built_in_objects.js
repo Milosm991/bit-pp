@@ -97,7 +97,7 @@
 //     var newArr = [];
 //     for (var i = 0; i < a.length; i++) {
 //         if (a[i] < b) {
-//             newArr[newArr.length] = a[i];
+//             newArrpush(arr[i]);
 //         }
 
 //     }
@@ -149,5 +149,47 @@
 // ]
 // )
 // console.log(res);
+////////////////  6b  //////////////
+// function totalPrice(a) {
+//     var sum = 0;
+//     var avgPrice;
+//     for (var i = 0; i < a.length; i++) {
+//         sum += a[i].price;
+//     }
+//     avgPrice=sum/a.length
+//     return avgPrice.toFixed(3)
+// }
+
+// var res = totalPrice([
+//     { name: "apples", price: 100 },
+//     { name: "milk", price: 80 },
+//     { name: "bananas", price: 150 }
+// ]
+// )
+// console.log(res);
+////////////// 6c ///////////////////
+// function totalPrice(a) {
+//     var maxPrice = a[0].price;
+//     var str=a[0].name
+//     for (var i = 0; i < a.length; i++) {
+//         if(a[0].price<a[i].price){
+//             str=a[i].name
+//         }
+//     }
+//     return str.toLocaleLowerCase();
+// }
+
+// var res = totalPrice([
+//     { name: "apples", price: 200 },
+//     { name: "BANAnas", price: 150 },
+//     { name: "milk", price: 180 }
+    
+    
+// ]
+// )
+// console.log(res);
+
+
+
 
 
