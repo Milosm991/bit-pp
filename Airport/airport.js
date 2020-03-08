@@ -1,4 +1,4 @@
-"use strict";
+"use strict"
 var main = (function () {
     console.log("Hi!");
     ///////////////////Person constructor Function
@@ -46,38 +46,6 @@ var main = (function () {
             this.listOfPass.push(personPass);
         };
 
-
-
-
-
-        // this.getData = function () {
-        //     var cities = this.relation.split(' ');
-        //     var someArray = []
-        //     var firstLetter;
-        //     var lastLetter;
-        //     for (var i = 0; i < cities.length; i++) {
-        //         for (var j = 0; j < cities[i].length; j++) {
-        //             if (cities[i][j] !== 'a' || cities[i][j] !== 'e' || cities[i][j] !== 'o' || cities[i][j] !== 'i' || cities[i][j] !== 'u') {
-        //                 firstLetter = cities[i][j];
-        //                 break;
-        //             }
-        //             for (var j = cities[i].length - 1; j >= 0; j--) {
-        //                 if (cities[i][j] !== 'a' || cities[i][j] !== 'e' || cities[i][j] !== 'o' || cities[i][j] !== 'i' || cities[i][j] !== 'u') {
-        //                     lastLetter = cities[i][j];
-        //                     break;
-        //                 }
-
-        //             }
-
-        //         }
-        //         someArray.push(firstLetter + lastLetter);
-        //     }
-        //     return this.date + someArray.join(' - ');
-
-
-
-
-        // }
     }
 
 
@@ -86,7 +54,7 @@ var main = (function () {
         this.name = "Nikola Tesla";
         this.listOfFlights = [];
         this.addFlight = function (flight) {
-            this.listOfFlights.push(flight)
+        this.listOfFlights.push(flight)
         };
         this.getData = function () {
             var res = "";

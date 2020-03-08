@@ -7,7 +7,7 @@ function Student(name, age, id) {
     this.getData = function () {
         return "Name: " + this.name + ", " + "Age" + this.age + ", " + "Id" + this.id;
 
-    }
+    };
 }
 
 ///// pravljenje drugog objekta //////
@@ -17,7 +17,7 @@ function Subject(name, description) {
     this.description = description;
     this.getData = function () {
         return "Name: " + this.name + ", " + "Description: " + this.description;
-    }
+    };
 
 }
 
@@ -29,10 +29,10 @@ function Classroom(name) {
     this.students = [];
     this.addSubject = function (sub) {
         this.subjects.push(sub)
-    }
+    };
     this.addStudent = function (stud) {
         this.students.push(stud)
-    }
+    };
     this.toString = function () {
         var resSub = "";
         for (var i = 0; i < this.subjects.length; i++) {
@@ -41,10 +41,10 @@ function Classroom(name) {
         var resStud = "";
         for (var i = 0; i < this.students.length; i++) {
             resStud += this.students[i].getData() + '\n\t';
-        }
+        };
         return resSub + resStud
 
-    }
+    };
 
 }
 
