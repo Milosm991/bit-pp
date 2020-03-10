@@ -1,12 +1,12 @@
-"use strict";
+`use strict`;
 (function () {
-    var CONTINENT = Object.freeze({
-        EUROPE: "EU",
-        AFRICA: "AF",
-        ASIA: "AS",
-        SOUTHAMERICA: "SA",
-        NORTHAMERICA: "NA",
-        AUSTRALIA: "AU",
+    const CONTINENT = Object.freeze({
+        EUROPE: `EU`,
+        AFRICA: `AF`,
+        ASIA: `AS`,
+        SOUTHAMERICA: `SA`,
+        NORTHAMERICA: `NA`,
+        AUSTRALIA: `AU`,
     });
     ////////////////CONST FUNCTION COUNTRY//////////////
     function Country(name, odds, continent) {
@@ -21,7 +21,7 @@
         this.dateOfbirth = new Date(dateOfbirth);
     }
     Person.prototype.getData = function () {
-        return this.name + " " + this.surname + " " + this.dateOfbirth.getDate() + "." + this.dateOfbirth.getMonth() + "." + this.dateOfbirth.getFullYear();
+        return (`${this.name} ${this.surname} ${this.dateOfbirth.getDate()}, ${this.dateOfbirth.getMonth()},${this.dateOfbirth.getFullYear()}`);
     }
     /////////////////////CONST FUNCTION PLAYER////////////////
     function Player(person, betAmount, country) {
@@ -32,9 +32,9 @@
     }
 
     Player.prototype.getData = function () {
-        var date = new Date();
-        var res = date.getFullYear() - this.person.dateOfbirth.getFullYear();
-        return this.country.name.slice(0, 2).toUpperCase() + ", " + this.betAmount * this.country.odds + " eur, " + this.person.name + " " + this.person.surname + ", " + res + " years\n";
+        let date = new Date();
+        let res = date.getFullYear() - this.person.dateOfbirth.getFullYear();
+        return this.country.name.slice(0, 2).toUpperCase() + `, ` + this.betAmount * this.country.odds + ` eur, ` + this.person.name + ` ` + this.person.surname + `, ` + res + ` years\n`;
     }
     //////////////////////CONST FUNCTION ADDRESS/////////////////
     function Address(country, city, postalCode, street, number) {
@@ -46,7 +46,7 @@
     }
 
     Address.prototype.getData = function () {
-        return this.street + " " + this.number + ",  " + this.postalCode + " " + this.city + ",  " + this.country;
+        return this.street + ` ` + this.number + `,  ` + this.postalCode + ` ` + this.city + `,  ` + this.country;
     }
     ///////////////CONST FUNCTION BETTING PLACE///////////////
     function BettingPlace(address) {
@@ -60,16 +60,16 @@
         this.numberOfPLayers++;
     }
     BettingPlace.prototype.getData = function () {
-        var res = 0;
-        for (var i = 0; i < this.listOfPLayers.length; i++) {
+        let res = 0;
+        for (let i = 0; i < this.listOfPLayers.length; i++) {
             res += this.listOfPLayers[i].betAmount;
         }
-        return this.address.street + ", " + this.address.postalCode + ", " + this.address.city + ", sum of all bets: " + res + "eur" + "\n";
+        return this.address.street + `, ` + this.address.postalCode + `, ` + this.address.city + `, sum of all bets: ` + res + `eur` + `\n`;
     }
     BettingPlace.prototype.getListOfPlayers = function () {
-        var players = '';
-        for (var i = 0; i < this.listOfPLayers.length; i++) {
-            players += this.listOfPLayers[i].getData() + "\n";
+        let players = ``;
+        for (let i = 0; i < this.listOfPLayers.length; i++) {
+            players += this.listOfPLayers[i].getData() + `\n`;
         }
         return players
     }
@@ -86,53 +86,53 @@
 
     }
     BettingHouse.prototype.getData = function () {
-        var res = '';
-        for (var i = 0; i < this.listOfBettingPlaces.length; i++) {
-            res += "\t" + this.listOfBettingPlaces[i].getData() + "\t";
+        let res = ``;
+        for (let i = 0; i < this.listOfBettingPlaces.length; i++) {
+            res += `\t` + this.listOfBettingPlaces[i].getData() + `\t`;
 
-            var playersString = "";
-            for (var j = 0; j < this.listOfBettingPlaces[i].listOfPLayers.length; j++) {
-                playersString += this.listOfBettingPlaces[i].listOfPLayers[j].getData() + "\t\t";
+            let playersString = ``;
+            for (let j = 0; j < this.listOfBettingPlaces[i].listOfPLayers.length; j++) {
+                playersString += this.listOfBettingPlaces[i].listOfPLayers[j].getData() + `\t\t`;
             }
 
-            res += "\t" + playersString + "\n";
+            res += `\t` + playersString + `\n`;
         }
-        return this.competition + ", " + this.listOfBettingPlaces.length + " betting places, " + this.numberOfPLayers + " bets" + "\n" + "\n" + res + "\t";
+        return this.competition + `, ` + this.listOfBettingPlaces.length + ` betting places, ` + this.numberOfPLayers + ` bets` + `\n` + `\n` + res + `\t`;
     }
 
     /////////////////////////////////////
-    var personOne = new Person("Milos", "Manojlovic", "05/24/1991");
-    var personTwo = new Person("Veljko", "Bugaric", "05/24/1991");
-    var personThree = new Person("Stefan", "Stefanovic", "05/24/1991");
-    var personFour = new Person("Nenad", "Dimitrijevic", "05/24/1991");
+    const personOne = new Person(`Milos`, `Manojlovic`, `05/24/1991`);
+    const personTwo = new Person(`Veljko`, `Bugaric`, `05/24/1991`);
+    const personThree = new Person(`Stefan`, `Stefanovic`, `05/24/1991`);
+    const personFour = new Person(`Nenad`, `Dimitrijevic`, `05/24/1991`);
     // console.log(personOne.getData());
 
-    var firstAddress = new Address("RS", "Belgrade", 11070, "Jurija Gagarina", 102);
-    var secondAddres = new Address("RS", "Belgrade", 11070, "Omladinskih Brigada", 88);
+    const firstAddress = new Address(`RS`, `Belgrade`, 11070, `Jurija Gagarina`, 102);
+    const secondAddres = new Address(`RS`, `Belgrade`, 11070, `Omladinskih Brigada`, 88);
     // console.log(firstAddress.getData());
 
-    var drzava = new Country("Serbia", 70, CONTINENT.EUROPE);
-    var drzava2 = new Country("Argentina", 10, CONTINENT.SOUTHAMERICA);
-    var drzava3 = new Country("Australia", 150, CONTINENT.AUSTRALIA);
-    var drzava4 = new Country("Italy", 15, CONTINENT.EUROPE);
+    const drzava = new Country(`Serbia`, 70, CONTINENT.EUROPE);
+    const drzava2 = new Country(`Argentina`, 10, CONTINENT.SOUTHAMERICA);
+    const drzava3 = new Country(`Australia`, 150, CONTINENT.AUSTRALIA);
+    const drzava4 = new Country(`Italy`, 15, CONTINENT.EUROPE);
     // console.log(drzava);
 
-    var igrac1 = new Player(personOne, 500, drzava);
-    var igrac2 = new Player(personTwo, 50, drzava2);
-    var igrac3 = new Player(personThree, 100, drzava3);
-    var igrac4 = new Player(personFour, 200, drzava4);
+    const igrac1 = new Player(personOne, 500, drzava);
+    const igrac2 = new Player(personTwo, 50, drzava2);
+    const igrac3 = new Player(personThree, 100, drzava3);
+    const igrac4 = new Player(personFour, 200, drzava4);
     // console.log(igrac1.getData());
 
-    var betPlace = new BettingPlace(firstAddress);
+    const betPlace = new BettingPlace(firstAddress);
     betPlace.addPlayer(igrac1);
     betPlace.addPlayer(igrac2);
 
-    var newBetPlace = new BettingPlace(secondAddres);
+    const newBetPlace = new BettingPlace(secondAddres);
     newBetPlace.addPlayer(igrac3);
     newBetPlace.addPlayer(igrac4);
     // console.log(betPlace.getData());
 
-    var betHouse = new BettingHouse("World cup winner");
+    const betHouse = new BettingHouse(`World cup winner`);
     betHouse.addBettingPlace(betPlace);
     betHouse.addBettingPlace(newBetPlace);
     console.log(betHouse.getData());
