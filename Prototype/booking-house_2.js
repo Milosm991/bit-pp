@@ -34,7 +34,7 @@
     Player.prototype.getData = function () {
         let date = new Date();
         let res = date.getFullYear() - this.person.dateOfbirth.getFullYear();
-        return this.country.name.slice(0, 2).toUpperCase() + `, ` + this.betAmount * this.country.odds + ` eur, ` + this.person.name + ` ` + this.person.surname + `, ` + res + ` years\n`;
+        return `${this.country.name.slice(0, 2).toUpperCase()}, ${this.betAmount * this.country.odds} eur, ${this.person.name} ${this.person.surname}, ${res} years\n`;
     }
     //////////////////////CONST FUNCTION ADDRESS/////////////////
     function Address(country, city, postalCode, street, number) {
@@ -46,7 +46,7 @@
     }
 
     Address.prototype.getData = function () {
-        return this.street + ` ` + this.number + `,  ` + this.postalCode + ` ` + this.city + `,  ` + this.country;
+        return `${this.street} ${this.number}, ${this.postalCode} ${this.city}, ${this.country}`;
     }
     ///////////////CONST FUNCTION BETTING PLACE///////////////
     function BettingPlace(address) {
@@ -64,7 +64,7 @@
         for (let i = 0; i < this.listOfPLayers.length; i++) {
             res += this.listOfPLayers[i].betAmount;
         }
-        return this.address.street + `, ` + this.address.postalCode + `, ` + this.address.city + `, sum of all bets: ` + res + `eur` + `\n`;
+        return `${this.address.street}, ${this.address.postalCode}, ${this.address.city}, sum of all bets: ${res} eur + `\n``;
     }
     BettingPlace.prototype.getListOfPlayers = function () {
         let players = ``;
@@ -97,7 +97,7 @@
 
             res += `\t` + playersString + `\n`;
         }
-        return this.competition + `, ` + this.listOfBettingPlaces.length + ` betting places, ` + this.numberOfPLayers + ` bets` + `\n` + `\n` + res + `\t`;
+        return `${this.competition}, ${this.listOfBettingPlaces.length} betting places, ${this.numberOfPLayers} bets `\n` `\n` ${res}`\t``;
     }
 
     /////////////////////////////////////
