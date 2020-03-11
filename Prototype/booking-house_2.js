@@ -134,6 +134,9 @@
     betHouse.addBettingPlace(newBetPlace);
     console.log(betHouse.getData());
 
+
+    console.log("Hello world");
+
     // console.log(betHouse);
 
 
