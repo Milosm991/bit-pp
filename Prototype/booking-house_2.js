@@ -21,7 +21,7 @@
         this.dateOfbirth = new Date(dateOfbirth);
     }
     Person.prototype.getData = function () {
-        return (`${this.name} ${this.surname} ${this.dateOfbirth.getDate()}, ${this.dateOfbirth.getMonth()},${this.dateOfbirth.getFullYear()}`);
+        return `${this.name} ${this.surname} ${this.dateOfbirth.getDate()}, ${this.dateOfbirth.getMonth()},${this.dateOfbirth.getFullYear()}`;
     }
     /////////////////////CONST FUNCTION PLAYER////////////////
     function Player(person, betAmount, country) {
@@ -36,6 +36,7 @@
         let res = date.getFullYear() - this.person.dateOfbirth.getFullYear();
         return `${this.country.name.slice(0, 2).toUpperCase()}, ${this.betAmount * this.country.odds} eur, ${this.person.name} ${this.person.surname}, ${res} years\n`;
     }
+
     //////////////////////CONST FUNCTION ADDRESS/////////////////
     function Address(country, city, postalCode, street, number) {
         this.country = country;
@@ -61,16 +62,24 @@
     }
     BettingPlace.prototype.getData = function () {
         let res = 0;
+<<<<<<< HEAD
         for (let i = 0; i < this.listOfPLayers.length; i++) {
             res += this.listOfPLayers[i].betAmount;
         }
         return `${this.address.street}, ${this.address.postalCode}, ${this.address.city}, sum of all bets: ${res} eur + `\n``;
+=======
+        this.listOfPLayers.forEach((amount) => {
+            res += amount.betAmount;
+        })
+
+        return `${this.address.street}, ${this.address.postalCode}, ${this.address.city}, sum of all bets:${res} eur  `;
+>>>>>>> 42e3c061e6c8ed371ee40ea087cca9755ed991ab
     }
     BettingPlace.prototype.getListOfPlayers = function () {
-        let players = ``;
-        for (let i = 0; i < this.listOfPLayers.length; i++) {
-            players += this.listOfPLayers[i].getData() + `\n`;
-        }
+        let players = '';
+        this.listOfPLayers.forEach((player) => {
+            players += `\t\t` + player.getData();
+        })
         return players
     }
     ///////////////CONST FUNCTION BETTING HOUSE////////////
@@ -86,6 +95,7 @@
 
     }
     BettingHouse.prototype.getData = function () {
+<<<<<<< HEAD
         let res = ``;
         for (let i = 0; i < this.listOfBettingPlaces.length; i++) {
             res += `\t` + this.listOfBettingPlaces[i].getData() + `\t`;
@@ -98,6 +108,15 @@
             res += `\t` + playersString + `\n`;
         }
         return `${this.competition}, ${this.listOfBettingPlaces.length} betting places, ${this.numberOfPLayers} bets `\n` `\n` ${res}`\t``;
+=======
+        let res = '';
+        this.listOfBettingPlaces.forEach((place) => {
+            res += `\t` + place.getData() + `\n`;
+            res += place.getListOfPlayers();
+        })
+        return `${this.competition}, ${this.listOfBettingPlaces.length} betting places, ${this.numberOfPLayers} bets 
+ ${res}  `;
+>>>>>>> 42e3c061e6c8ed371ee40ea087cca9755ed991ab
     }
 
     /////////////////////////////////////
