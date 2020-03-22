@@ -62,18 +62,11 @@
     }
     BettingPlace.prototype.getData = function () {
         let res = 0;
-<<<<<<< HEAD
-        for (let i = 0; i < this.listOfPLayers.length; i++) {
-            res += this.listOfPLayers[i].betAmount;
-        }
-        return `${this.address.street}, ${this.address.postalCode}, ${this.address.city}, sum of all bets: ${res} eur + `\n``;
-=======
         this.listOfPLayers.forEach((amount) => {
             res += amount.betAmount;
         })
 
         return `${this.address.street}, ${this.address.postalCode}, ${this.address.city}, sum of all bets:${res} eur  `;
->>>>>>> 42e3c061e6c8ed371ee40ea087cca9755ed991ab
     }
     BettingPlace.prototype.getListOfPlayers = function () {
         let players = '';
@@ -95,20 +88,6 @@
 
     }
     BettingHouse.prototype.getData = function () {
-<<<<<<< HEAD
-        let res = ``;
-        for (let i = 0; i < this.listOfBettingPlaces.length; i++) {
-            res += `\t` + this.listOfBettingPlaces[i].getData() + `\t`;
-
-            let playersString = ``;
-            for (let j = 0; j < this.listOfBettingPlaces[i].listOfPLayers.length; j++) {
-                playersString += this.listOfBettingPlaces[i].listOfPLayers[j].getData() + `\t\t`;
-            }
-
-            res += `\t` + playersString + `\n`;
-        }
-        return `${this.competition}, ${this.listOfBettingPlaces.length} betting places, ${this.numberOfPLayers} bets `\n` `\n` ${res}`\t``;
-=======
         let res = '';
         this.listOfBettingPlaces.forEach((place) => {
             res += `\t` + place.getData() + `\n`;
@@ -116,7 +95,6 @@
         })
         return `${this.competition}, ${this.listOfBettingPlaces.length} betting places, ${this.numberOfPLayers} bets 
  ${res}  `;
->>>>>>> 42e3c061e6c8ed371ee40ea087cca9755ed991ab
     }
 
     /////////////////////////////////////
